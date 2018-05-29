@@ -3,3 +3,19 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  ul
+    li My Text
+    li Next line
+
+  input(type='text').class-name#anyid
+  - var condition = true
+  if condition
+    p It's true
+  - var anyArray = [1, 2, 3]
+  each value in anyArray
+    p= value
+
+  each picture in pictures
+    -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture;
+    img(src=''+pfad)

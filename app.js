@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fs = require('fs');
+
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -38,5 +41,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.listen(80, function(){
+  console.log("Dienstgeber hört nun auf eingehende Verbindung auf Port 80");
+});
 
 module.exports = app;
+
+
+
+
