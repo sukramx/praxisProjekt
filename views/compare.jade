@@ -1,6 +1,8 @@
 extends layout
 
 block content
+
+  script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
   h1= title
   p Welcome to #{title}
 
@@ -15,3 +17,7 @@ block content
   - var anyArray = [1, 2, 3]
   each value in anyArray
     p= value
+
+  each picture in pictures
+    -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture;
+    img.draggable(src=''+pfad)

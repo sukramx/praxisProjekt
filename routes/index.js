@@ -36,7 +36,7 @@ function generateRoute(route){
     router.get('/' + route, (req, res, next) => {
         var pictures = fs.readdirSync(pathToWatchfolder+'/'+route+'/samples');
         //console.log(pictures);
-        res.render('index', { title: route, condition: false, path: route, pictures: pictures });
+        res.render('compare', { title: route, condition: false, path: route, pictures: pictures });
         //console.log(route + " wurde aufgerufen!");
     })
 }
