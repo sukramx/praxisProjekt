@@ -3,10 +3,16 @@ var router = express.Router();
 var fs = require('fs');
 var pathToWatchfolder = 'public/routes/verzeichnis';
 var files = fs.readdirSync('public/routes/verzeichnis/');
+var jquery = require('jquery');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Raytracing Viewer', condition: false });
+});
+
+router.get('/test', function(req, res, next) {
+    res.render('test', { title: 'testpage' });
 });
 
 try {

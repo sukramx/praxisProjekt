@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+
+figure img {
+  border-radius: 3px 3px 0 0;
+}
+
+figure figcaption {
+  padding: 2px 4px 2px 4px;
+  background-color: #636363;
+  color: #cccccc;
+  font-style: italic;
+  border-radius: 0 0 3px 3px;
+}

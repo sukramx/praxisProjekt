@@ -2,13 +2,20 @@ extends layout
 
 block content
 
-  script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+
+
   h1= title
   p Welcome to #{title}
 
   ul
     li My Text
     li Next line
+
+  span#draggable Drag Me
+
+
+
+
 
   input(type='text').class-name#anyid
   - var condition = true
@@ -18,6 +25,15 @@ block content
   each value in anyArray
     p= value
 
-  each picture in pictures
-    -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture;
-    img.draggable(src=''+pfad)
+
+  div
+      table
+          thead
+            tr: th Pictures
+          tbody
+              each picture in pictures
+                  -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture;
+
+                      td
+                          div.picture
+                              img(src='' + pfad, width= 100, alt= picture)
