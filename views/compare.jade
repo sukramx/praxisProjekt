@@ -2,8 +2,6 @@ extends layout
 
 block content
 
-
-
   h1= title
   p Welcome to #{title}
 
@@ -13,27 +11,45 @@ block content
 
   span#draggable Drag Me
 
-
-
-
-
+  br
+  -var x = "0px", y="0px"
+  -var test= 1
   input(type='text').class-name#anyid
-  - var condition = true
-  if condition
-    p It's true
-  - var anyArray = [1, 2, 3]
-  each value in anyArray
-    p= value
 
+  p#ausgabe #{test}
 
   div
-      table
-          thead
-            tr: th Pictures
-          tbody
-              each picture in pictures
-                  -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture;
+    table
+      tbody
+        tr
+          td
+            each picture in pictures
+              -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture
+              td
+                div
+                  p(align= 'center') #{picture}
+        tr
+          td
+            each picture in pictures
+              -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture
+              td
+                div.picture
+                  img(src='' + pfad, width= 100, alt= picture)
 
-                      td
-                          div.picture
-                              img(src='' + pfad, width= 100, alt= picture)
+
+  style.
+    .crosshair{
+      height: 400px;
+      width: 700px;
+      clear: both;
+      cursor: crosshair;
+      background: #ff00ab;
+      z-index: 11;
+    }
+
+
+  div.crosshair#crosshair(onclick='setDivBox()')
+    div#topleft(style=' z-index: 10; position: absolute;overflow: hidden;border: 1px solid white;width: #{x};height: #{y};background-image: url("http://localhost/routes/verzeichnis/ersterVersuch/samples/pg_0.png");')
+    div#topright(style=' z-index: 9; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("http://localhost/routes/verzeichnis/ersterVersuch/samples/pg_1.png");')
+    div#bottomleft(style=' z-index: 8; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("http://localhost/routes/verzeichnis/ersterVersuch/samples/pg_2.png");')
+    div#bottomright(style=' z-index: 7; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("http://localhost/routes/verzeichnis/ersterVersuch/samples/pg_3.png");')
