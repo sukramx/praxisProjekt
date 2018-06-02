@@ -4,6 +4,7 @@ var fs = require('fs');
 var pathToWatchfolder = 'public/routes/verzeichnis';
 var files = fs.readdirSync('public/routes/verzeichnis/');
 var jquery = require('jquery');
+let compareBoxes = ["topleft", "topright", "bottomleft", "bottomright"];
 
 
 /* GET home page. */
@@ -42,20 +43,11 @@ function generateRoute(route){
     router.get('/' + route, (req, res, next) => {
         var pictures = fs.readdirSync(pathToWatchfolder+'/'+route+'/samples');
         //console.log(pictures);
-        res.render('compare', { title: route, condition: false, path: route, pictures: pictures, zaehler: zaehaler()});
+        res.render('compare', { title: route, condition: false, path: route, pictures: pictures, compareBoxes: compareBoxes});
         //console.log(route + " wurde aufgerufen!");
     })
 }
 
-var counter=0;
-function zaehaler() {
-    counter++;
-    if(counter%4===0){
-        counter = 0;
-        return true
-    }
-    return false
-}
 
 generateRoutes();
 module.exports = router;

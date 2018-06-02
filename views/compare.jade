@@ -12,8 +12,8 @@ block content
   span#draggable Drag Me
 
   br
-  -var x = "0px", y="0px"
-  -var test= 1
+
+  - var test= 1
   input(type='text').class-name#anyid
 
   p#ausgabe #{test}
@@ -47,9 +47,19 @@ block content
       z-index: 11;
     }
 
+  - var boxes=0
+  - var laeufer=0
+  if pictures.length >= 4
+    - var boxes= 4
+  else
+    - var boxes=pictures.length
 
-  div.crosshair#crosshair(onclick='setDivBox()')
-    div#topleft(style=' z-index: 10; position: absolute;overflow: hidden;border: 1px solid white;width: #{x};height: #{y};background-image: url("http://localhost/routes/verzeichnis/ersterVersuch/samples/pg_0.png");')
-    div#topright(style=' z-index: 9; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("http://localhost/routes/verzeichnis/ersterVersuch/samples/pg_1.png");')
-    div#bottomleft(style=' z-index: 8; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("http://localhost/routes/verzeichnis/ersterVersuch/samples/pg_2.png");')
-    div#bottomright(style=' z-index: 7; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("http://localhost/routes/verzeichnis/ersterVersuch/samples/pg_3.png");')
+  p#boxes #{boxes}
+
+  div.crosshair#crosshair()
+    - for(var laeufer=0;laeufer<boxes;laeufer++)
+        if(laeufer===boxes-1)
+            div.crosshair(style='z-index: 0; position:absolute;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[laeufer]+'");')
+        else
+            div(id=compareBoxes[laeufer], style='z-index:' +(10-laeufer).toString()+'; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[laeufer]+'");')
+
