@@ -54,7 +54,7 @@ block content
   else
     - var boxes=pictures.length
 
-  p#boxes #{boxes}
+  p#boxes(style='visibility: hidden') #{boxes}
 
   div.crosshair#crosshair()
     - for(var laeufer=0;laeufer<boxes;laeufer++)
@@ -63,3 +63,4 @@ block content
         else
             div(id=compareBoxes[laeufer], style='z-index:' +(10-laeufer).toString()+'; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[laeufer]+'");')
 
+  input#check(type='checkbox')
