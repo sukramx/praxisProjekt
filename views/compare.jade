@@ -18,6 +18,8 @@ block content
 
   p#ausgabe #{test}
 
+
+  // Picture View
   div
     table
       tbody
@@ -34,9 +36,10 @@ block content
               -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture
               td
                 div.picture
-                  img(src='' + pfad, width= 100, alt= picture)
+                  img.thumb(class="#{picture.substring(0, picture.length-4)}",src='' + pfad, width= 100, alt= picture)
 
 
+  //Compare View
   style.
     .crosshair{
       height: 400px;
@@ -56,11 +59,21 @@ block content
 
   p#boxes(style='visibility: hidden') #{boxes}
 
-  div.crosshair#crosshair()
+  div.crosshair#crosshair(style='border: 1px solid white')
     - for(var laeufer=0;laeufer<boxes;laeufer++)
         if(laeufer===boxes-1)
             div.crosshair(style='z-index: 0; position:absolute;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[laeufer]+'");')
         else
             div(id=compareBoxes[laeufer], style='z-index:' +(10-laeufer).toString()+'; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[laeufer]+'");')
 
-  input#check(type='checkbox')
+  <!--/ The Context Menu -->
+  nav.context-menu#context-menu
+    ul.context-menu__items
+        li.context-menu__item
+            a.context-menu__link#clickTopLeft(data-action= "TopLeft") TopLeft
+        li.context-menu__item
+            a.context-menu__link#clickTopRight(data-action= "TopRight") TopRight
+        li.context-menu__item
+            a.context-menu__link#clickBottomLeft(data-action= "BottomLeft") BottomLeft
+        li.context-menu__item
+            a.context-menu__link#clickBottomRight(data-action= "BottomRight") BottomRight
