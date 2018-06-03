@@ -1,6 +1,17 @@
 let check = true;
 $(document).ready(function(){
 
+    //ZoomBox
+    var divCompareOffsetTop=$('#crosshair').offset().top;
+    $('#zoomBox').css('top',(divCompareOffsetTop))
+        .css('position', 'absolute');
+    $('#zTopLeft').css('background-image', document.getElementById('topleft').style.backgroundImage);
+    $('#zTopRight').css('background-image', document.getElementById('topright').style.backgroundImage);
+    $('#zBottomLeft').css('background-image', document.getElementById('bottomleft').style.backgroundImage);
+    $('#zBottomRight').css('background-image', document.getElementById('bottomright').style.backgroundImage);
+
+
+    //Draggable Items Set
     let anzahl = $('#boxes').text();
     $('#crosshair').on('mousemove', function (e) {
         var parentOffset = $(this).offset();
@@ -12,6 +23,11 @@ $(document).ready(function(){
         if(check===true) {
             if (anzahl == 2)
                 $('#topleft').css('width', relX.toString());
+            else if (anzahl == 3){
+                $('#topleft').css('width', relX.toString())
+                    .css('height', relY.toString());
+                $('#topright').css('height', relY.toString());
+            }
             else if (anzahl > 1) {
                 $('#topleft').css('width', relX.toString())
                     .css('height', relY.toString());

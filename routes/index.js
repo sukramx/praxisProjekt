@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/test', function(req, res, next) {
-    res.render('test', { title: 'testpage' });
+    res.render('test', { title: 'zoom' });
 });
 
 try {
@@ -43,7 +43,7 @@ function generateRoute(route){
     router.get('/' + route, (req, res, next) => {
         var pictures = fs.readdirSync(pathToWatchfolder+'/'+route+'/samples');
         //console.log(pictures);
-        res.render('compare', { title: route, condition: false, path: route, pictures: pictures, compareBoxes: compareBoxes});
+        res.render('content', { title: route, condition: false, path: route, pictures: pictures, compareBoxes: compareBoxes});
         //console.log(route + " wurde aufgerufen!");
     })
 }

@@ -60,11 +60,9 @@ block content
   p#boxes(style='visibility: hidden') #{boxes}
 
   div.crosshair#crosshair(style='border: 1px solid white')
-    - for(var laeufer=0;laeufer<boxes;laeufer++)
-        if(laeufer===boxes-1)
-            div.crosshair(style='z-index: 0; position:absolute;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[laeufer]+'");')
-        else
-            div(id=compareBoxes[laeufer], style='z-index:' +(10-laeufer).toString()+'; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[laeufer]+'");')
+    - for(var i=boxes;0<i;i--)
+            div(id=compareBoxes[i-1], style='z-index:' +(10-i-1).toString()+'; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[i-1]+'");')
+
 
   <!--/ The Context Menu -->
   nav.context-menu#context-menu
@@ -73,7 +71,12 @@ block content
             a.context-menu__link#clickTopLeft(data-action= "TopLeft") TopLeft
         li.context-menu__item
             a.context-menu__link#clickTopRight(data-action= "TopRight") TopRight
-        li.context-menu__item
-            a.context-menu__link#clickBottomLeft(data-action= "BottomLeft") BottomLeft
-        li.context-menu__item
-            a.context-menu__link#clickBottomRight(data-action= "BottomRight") BottomRight
+      if (boxes > 2)
+          li.context-menu__item
+              a.context-menu__link#clickBottomLeft(data-action= "BottomLeft") BottomLeft
+      if(boxes > 3)
+          li.context-menu__item
+              a.context-menu__link#clickBottomRight(data-action= "BottomRight") BottomRight
+
+
+  p() #{boxes}

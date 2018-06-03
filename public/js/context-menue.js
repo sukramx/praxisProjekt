@@ -161,12 +161,16 @@ $(document).ready
             console.log('You Clicked the remove button')
         }else if(moveToAlbumSelectedId == 'TopLeft'){
             $('#topleft').css('background-image','url("'+menuSelectedPhotoId+'")' );
+            $('#zTopLeft').css('background-image','url("'+menuSelectedPhotoId+'")' );
         }else if(moveToAlbumSelectedId == 'TopRight'){
             $('#topright').css('background-image','url("'+menuSelectedPhotoId+'")' );
+            $('#zTopRight').css('background-image','url("'+menuSelectedPhotoId+'")' );
         }else if(moveToAlbumSelectedId == 'BottomLeft'){
             $('#bottomleft').css('background-image','url("'+menuSelectedPhotoId+'")' );
+            $('#zBottomLeft').css('background-image','url("'+menuSelectedPhotoId+'")' );
         }else if(moveToAlbumSelectedId == 'BottomRight'){
-            $('div.crosshair').css('background-image','url("'+menuSelectedPhotoId+'")' );
+            $('#bottomright').css('background-image','url("'+menuSelectedPhotoId+'")' );
+            $('#zBottomRight').css('background-image','url("'+menuSelectedPhotoId+'")' );
         }
 
         toggleMenuOff();
