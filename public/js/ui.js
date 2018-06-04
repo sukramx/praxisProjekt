@@ -21,8 +21,10 @@ $(document).ready(function(){
         //alert("Hello World " + relY);
 
         if(check===true) {
-            if (anzahl == 2)
+            if (anzahl == 2) {
                 $('#topleft').css('width', relX.toString());
+                document.getElementById('zTopLeft').style.backgroundPosition = "-"+(relX*document.getElementById('zTopLeft').offsetWidth)+"px -"+(document.getElementById('zTopLeft').offsetHeight)+"px";
+            }
             else if (anzahl == 3){
                 $('#topleft').css('width', relX.toString())
                     .css('height', relY.toString());
@@ -33,6 +35,11 @@ $(document).ready(function(){
                     .css('height', relY.toString());
                 $('#topright').css('height', relY.toString());
                 $('#bottomleft').css('width', relX.toString());
+
+                document.getElementById('zTopLeft').style.backgroundPosition = "-"+relX/2+"px -"+relY/2+"px";
+                document.getElementById('zTopRight').style.backgroundPosition = "-"+relX/2+"px -"+relY/2+"px";
+                document.getElementById('zBottomLeft').style.backgroundPosition = "-"+relX/2+"px -"+relY/2+"px";
+                document.getElementById('zBottomRight').style.backgroundPosition = "-"+relX/2+"px -"+relY/2+"px";
             }
         }
 
