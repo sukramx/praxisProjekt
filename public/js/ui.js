@@ -6,6 +6,7 @@ $(document).ready(function(){
     $('#zoomBox').css('top',(divCompareOffsetTop))
         .css('position', 'absolute');
     $('#zTopLeft').css('background-image', document.getElementById('topleft').style.backgroundImage);
+    document.getElementById('zTopLeft').style.backgroundSize = (1400) +'px '+ (800)+'px';
     $('#zTopRight').css('background-image', document.getElementById('topright').style.backgroundImage);
     $('#zBottomLeft').css('background-image', document.getElementById('bottomleft').style.backgroundImage);
     $('#zBottomRight').css('background-image', document.getElementById('bottomright').style.backgroundImage);
@@ -23,7 +24,7 @@ $(document).ready(function(){
         if(check===true) {
             if (anzahl == 2) {
                 $('#topleft').css('width', relX.toString());
-                document.getElementById('zTopLeft').style.backgroundPosition = "-"+(relX*document.getElementById('zTopLeft').offsetWidth)+"px -"+(document.getElementById('zTopLeft').offsetHeight)+"px";
+                document.getElementById('zTopLeft').style.backgroundPosition = "-"+(relX*document.getElementById('zTopLeft').width)+"px -"+(document.getElementById('zTopLeft').height)+"px";
             }
             else if (anzahl == 3){
                 $('#topleft').css('width', relX.toString())
@@ -36,7 +37,7 @@ $(document).ready(function(){
                 $('#topright').css('height', relY.toString());
                 $('#bottomleft').css('width', relX.toString());
 
-                document.getElementById('zTopLeft').style.backgroundPosition = "-"+relX/2+"px -"+relY/2+"px";
+                document.getElementById('zTopLeft').style.backgroundPosition = "-"+relX*1.5+"px -"+relY*1.5+"px";
                 document.getElementById('zTopRight').style.backgroundPosition = "-"+relX/2+"px -"+relY/2+"px";
                 document.getElementById('zBottomLeft').style.backgroundPosition = "-"+relX/2+"px -"+relY/2+"px";
                 document.getElementById('zBottomRight').style.backgroundPosition = "-"+relX/2+"px -"+relY/2+"px";
