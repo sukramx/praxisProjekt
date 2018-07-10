@@ -60,7 +60,7 @@ block content
   p#boxes(style='visibility: hidden') #{boxes}
 
   //div#container
-  div.crosshair#crosshair(style='border: 1px solid white')
+  div.crosshair#crosshair(style='border: 1px solid white; position:relative')
     - for(var i=boxes;0<i;i--)
       div(id=compareBoxes[i-1], style='z-index:' +(10-i-1).toString()+'; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[i-1]+'");')
 
@@ -80,6 +80,6 @@ block content
               a.context-menu__link#clickBottomRight(data-action= "BottomRight") BottomRight
 
 
-  button(onclick='createBox()') CreateBox
+  button(style='',onclick='createBox()') CreateBox
   p() #{boxes}
-  div(style='width:700px;height:700px;color:green')#testBox
+  div()#testBox

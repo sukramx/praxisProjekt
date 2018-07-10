@@ -1,8 +1,7 @@
 let check = true;
 $(document).ready(function(){
+
     let showBox = $('#crosshair');
-
-
 
     //Draggable Items Set
     let anzahl = $('#boxes').text();
@@ -12,11 +11,9 @@ $(document).ready(function(){
         let relX = e.pageX - parentOffset.left;
         let relY = e.pageY - parentOffset.top;
 
-
         if(check===true) {
             if (anzahl == 2) {
                 $('#topleft').css('width', relX.toString());
-                //document.getElementById('zTopLeft').style.backgroundPosition = "-"+(relX*document.getElementById('zTopLeft').width)+"px -"+(document.getElementById('zTopLeft').height)+"px";
             }
             else if (anzahl == 3){
                 $('#topleft').css('width', relX.toString())
@@ -35,6 +32,7 @@ $(document).ready(function(){
     }).on('click',function () {
         check=!check;
     });
+
 
 
     $("#draggable, div.picture").draggable({
@@ -66,19 +64,65 @@ function getCursorPos(e) {
 
 
 
-var boxes =[];
+var colours =[red, blue, green, purpel, pink];
 
+/**
+ * This function creates a new box into the compareBox
+ */
 function createBox(){
-    //alert("Create Box");
+    //Create a new Box
     let imagine = $('<div></div>').appendTo('#crosshair');
-    //boxes.add(imagine);
-
+    //Config box
     imagine.css('z-index', '100')
         .css('border', '1px solid red')
         .css('width', '100px')
         .css('height', '100px')
         .css('position', 'absolute');
+    //set Box draggable and resizable
     imagine.draggable({containment:'parent'});
     imagine.resizable({handles:'all', autoHide:true, aspectRatio:true});
-    //alert("Box Created");
+    createBoxDiv(imagine);
+
+}
+
+function createBoxDiv(box){
+    let src = getElementsByClassName(document, 'picture');
+    let anzahl = $(src).length;
+    let div = $('<div></div>').appendTo('#testBox');
+    div.css('height', box.css('height'));
+
+
+    for(let i=0; i<anzahl; i++){
+        let imgView = $('<div></div>').appendTo(div);
+        imgView.css('height', box.css('height'))
+            .css('width', box.css('height'))
+            .css('float', 'left')
+            .css('background-image', 'url('+$(src[i]).children('img').attr('src')+')');
+
+    }
+
+}
+
+
+function getElementsByClassName(node,classname) {
+    if (node.getElementsByClassName) { // use native implementation if available
+        return node.getElementsByClassName(classname);
+    } else {
+        return (function getElementsByClass(searchClass,node) {
+            if ( node == null )
+                node = document;
+            var classElements = [],
+                els = node.getElementsByTagName("*"),
+                elsLen = els.length,
+                pattern = new RegExp("(^|\\s)"+searchClass+"(\\s|$)"), i, j;
+
+            for (i = 0, j = 0; i < elsLen; i++) {
+                if ( pattern.test(els[i].className) ) {
+                    classElements[j] = els[i];
+                    j++;
+                }
+            }
+            return classElements;
+        })(classname, node);
+    }
 }
