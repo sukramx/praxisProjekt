@@ -97,6 +97,7 @@ function createBoxDiv(box){
         imgView.css('height', box.css('height'))
             .css('width', box.css('height'))
             .css('float', 'left')
+            .css('margin', '5px 5px 5px 5px')
             .css('background-image', 'url('+$(src[i]).children('img').attr('src')+')');
 
     }
@@ -104,6 +105,7 @@ function createBoxDiv(box){
 }
 
 
+//https://stackoverflow.com/questions/1933602/how-to-getelementbyclass-instead-of-getelementbyid-with-javascript
 function getElementsByClassName(node,classname) {
     if (node.getElementsByClassName) { // use native implementation if available
         return node.getElementsByClassName(classname);
@@ -111,7 +113,7 @@ function getElementsByClassName(node,classname) {
         return (function getElementsByClass(searchClass,node) {
             if ( node == null )
                 node = document;
-            var classElements = [],
+            let classElements = [],
                 els = node.getElementsByTagName("*"),
                 elsLen = els.length,
                 pattern = new RegExp("(^|\\s)"+searchClass+"(\\s|$)"), i, j;
