@@ -9,7 +9,7 @@ let compareBoxes = ["topleft", "topright", "bottomleft", "bottomright"];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Raytracing Viewer', condition: false });
+  res.render('index', { title: 'Monte Carlo Rendering Algorithmen Evaluationstool', condition: false, routes: files });
 });
 
 /**
