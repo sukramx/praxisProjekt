@@ -3,19 +3,7 @@ extends layout
 block content
 
   h1= title
-  p Welcome to #{title}
-
-  ul
-    li My Text
-    li Next line
-
-  span#draggable Drag Me
-
-  br
-
-  - var test= 1
-  input(type='text').class-name#anyid
-
+  p Welcome to comparison of #{title}
   p#ausgabe #{test}
 
 
@@ -59,7 +47,7 @@ block content
 
   p#boxes(style='visibility: hidden') #{boxes}
 
-  //div#container
+  //inner Div Boxes from Compareview
   div.crosshair#crosshair(style='border: 1px solid white; position:relative')
     - for(var i=boxes;0<i;i--)
       div(id=compareBoxes[i-1], style='z-index:' +(10-i-1).toString()+'; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[i-1]+'");')
@@ -79,7 +67,10 @@ block content
           li.context-menu__item
               a.context-menu__link#clickBottomRight(data-action= "BottomRight") BottomRight
 
+  //Button to create an Inset
+  button(style='',onclick='createBox()') Create Inset
 
-  button(style='',onclick='createBox()') CreateBox
+
   p() #{boxes}
+  //Div where alls Inset Boxes will add
   div()#testBox

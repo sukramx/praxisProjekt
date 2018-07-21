@@ -28,17 +28,17 @@ $(document).ready(function(){
 
                 }
         }
-
+       // For freeze the crosshair
     }).on('click',function () {
         check=!check;
     });
 
 
 
+    // Set the thumb pictures draggable
     $("#draggable, div.picture").draggable({
         containment:'document',
         revert: true
-
     });
     $('div.picture').on('mousedown',function () {
         $(this).css('z-index','9999')
@@ -62,12 +62,10 @@ function getCursorPos(e) {
     return {x : x, y : y};
 }
 
-
-
 var colours =[red, blue, green, purpel, pink];
 
 /**
- * This function creates a new box into the compareBox
+ * This function creates a new Inset into the compareBox
  */
 function createBox(){
     //Create a new Box
@@ -85,6 +83,10 @@ function createBox(){
 
 }
 
+/**
+ * in this Function the Div for an Inset will be create.
+ * @param box is the reference from our inset
+ */
 function createBoxDiv(box){
     let src = getElementsByClassName(document, 'picture');
     let anzahl = $(src).length;
