@@ -1,4 +1,5 @@
 let check = true;
+var insets = [];
 $(document).ready(function(){
 
     let showBox = $('#crosshair');
@@ -48,19 +49,7 @@ $(document).ready(function(){
 
 });
 
-function getCursorPos(e) {
-    var a, x = 0, y = 0;
-    e = e || window.event;
-    /*get the x and y positions of the image:*/
-    a = img.getBoundingClientRect();
-    /*calculate the cursor's x and y coordinates, relative to the image:*/
-    x = e.pageX - a.left;
-    y = e.pageY - a.top;
-    /*consider any page scrolling:*/
-    x = x - window.pageXOffset;
-    y = y - window.pageYOffset;
-    return {x : x, y : y};
-}
+
 
 var colours =[red, blue, green, purpel, pink];
 
@@ -78,8 +67,9 @@ function createBox(){
         .css('position', 'absolute');
     //set Box draggable and resizable
     imagine.draggable({containment:'parent'});
-    imagine.resizable({handles:'all', autoHide:true, aspectRatio:true});
+    imagine.resizable({handles:'all', autoHide:true, aspectRatio:true, containment:'parent'});
     createBoxDiv(imagine);
+    imagine.on('drag', changePosition(e));
 
 }
 
@@ -93,19 +83,45 @@ function createBoxDiv(box){
     let div = $('<div></div>').appendTo('#testBox');
     div.css('height', box.css('height'));
 
+    let insetBoxes = 0;
 
     for(let i=0; i<anzahl; i++){
-        let imgView = $('<div></div>').appendTo(div);
+        let id = "insetBox"+insets.length+"n"+insetBoxes;
+        let imgView = $('<div)></div>').appendTo(div);
         imgView.css('height', box.css('height'))
             .css('width', box.css('height'))
             .css('float', 'left')
             .css('margin', '5px 5px 5px 5px')
-            .css('background-image', 'url('+$(src[i]).children('img').attr('src')+')');
-
+            .css('background-image', 'url('+$(src[i]).children('img').attr('src')+')')
+            .attr("id", id);
+        insetBoxes +=1;
     }
+    insets.length += 1;
+    insets[insets.length-1] = insetBoxes;
 
 }
 
+function changePosition(element) {
+    let x = element.position().left;
+    let y = element.position().top;
+
+    alert(x);
+
+}
+
+function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+}
 
 //https://stackoverflow.com/questions/1933602/how-to-getelementbyclass-instead-of-getelementbyid-with-javascript
 function getElementsByClassName(node,classname) {
