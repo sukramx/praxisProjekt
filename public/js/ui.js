@@ -51,7 +51,6 @@ $(document).ready(function(){
 
 
 
-var colours =[red, blue, green, purpel, pink];
 
 /**
  * This function creates a new Inset into the compareBox
@@ -66,10 +65,9 @@ function createBox(){
         .css('height', '100px')
         .css('position', 'absolute');
     //set Box draggable and resizable
-    imagine.draggable({containment:'parent'});
-    imagine.resizable({handles:'all', autoHide:true, aspectRatio:true, containment:'parent'});
+    imagine.draggable({containment:'parent',start: function(){console.log('Starte den Drag')}, ondrag: changePosition(imagine), stop: function(){console.log('Beende den Drag');changePosition(imagine)}});
+    imagine.resizable({handles:'all', autoHide:true, aspectRatio:false, containment:'parent'});
     createBoxDiv(imagine);
-    imagine.on('drag', changePosition(e));
 
 }
 
@@ -101,12 +99,25 @@ function createBoxDiv(box){
 
 }
 
-function changePosition(element) {
-    let x = element.position().left;
-    let y = element.position().top;
 
-    alert(x);
+function changePosition(element, index) {
+    let posx = element.position().left;
+    let posy = element.position().top;
 
+    let x = -posx
+    let y = -posy
+    console.log("X: "+x + " Y "+y);
+    changeInsetDiv(x, y);
+
+}
+
+function changeInsetDiv(x, y) {
+    for(let zaehler = 0; zaehler <= insets.length; zaehler++){
+        for (let zaehler2 = 0; zaehler2 <= insets[zaehler]; zaehler2++){
+            let id = "#insetBox"+zaehler+"n"+zaehler2;
+            $(id).css('background-position', x+'px '+y+'px');
+        }
+    }
 }
 
 function getCursorPos(e) {
@@ -145,4 +156,5 @@ function getElementsByClassName(node,classname) {
             return classElements;
         })(classname, node);
     }
+
 }
