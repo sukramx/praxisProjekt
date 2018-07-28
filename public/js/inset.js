@@ -15,6 +15,7 @@ class Inset {
             }});
     }
 
+    //Erstellt ein Inset innerhalb der Vergleichsbox
     createInset(){
         let inset = $('<div></div>').appendTo('#crosshair');
         inset
@@ -26,6 +27,7 @@ class Inset {
         return inset;
     }
 
+    //Erstellt ein neues Element welches unterhalb der Vergleichsbox angesiedelt wird.
     createInsetBox(){
         let src = getElementsByClassName(document, 'picture');
         let anzahl = $(src).length;
@@ -48,12 +50,14 @@ class Inset {
         return div;
     }
 
+    //Wird aufgerufen, wenn das Inset bewegt wird. Aendert die background-position von jedem Bild in der insetBox
     changePosition(){
         let x = - this.inset.position().left;
         let  y = - this.inset.position().top;
         this.insetBox.children().css('background-position', x+'px '+y+'px');
     }
 
+    //Wird aufgerufen, wenn das Inset in der Größe verändert wird. Ändert die Höhe und Breite von jedem Bild in der insetBox
     changeSize(){
         let h = this.inset.css('height');
         let w = this.inset.css('width');
