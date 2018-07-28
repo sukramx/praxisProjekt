@@ -55,10 +55,15 @@ $(document).ready(function(){
 /**
  * This function creates a new Inset into the compareBox
  */
+
+
 function createBox(){
     //Create a new Box
-    let imagine = $('<div></div>').appendTo('#crosshair');
+    //let imagine = $('<div></div>').appendTo('#crosshair');
+    insets.push(new Inset());
+    createBoxDiv(insets.length-1);
     //Config box
+    /*
     imagine.css('z-index', '100')
         .css('border', '1px solid red')
         .css('width', '100px')
@@ -68,6 +73,7 @@ function createBox(){
     imagine.draggable({containment:'parent',start: function(){console.log('Starte den Drag')}, ondrag: changePosition(imagine), stop: function(){console.log('Beende den Drag');changePosition(imagine)}});
     imagine.resizable({handles:'all', autoHide:true, aspectRatio:false, containment:'parent'});
     createBoxDiv(imagine);
+    */
 
 }
 
@@ -75,7 +81,8 @@ function createBox(){
  * in this Function the Div for an Inset will be create.
  * @param box is the reference from our inset
  */
-function createBoxDiv(box){
+function createBoxDiv(index){
+    let box = insets[index].getInset;
     let src = getElementsByClassName(document, 'picture');
     let anzahl = $(src).length;
     let div = $('<div></div>').appendTo('#testBox');
@@ -94,8 +101,9 @@ function createBoxDiv(box){
             .attr("id", id);
         insetBoxes +=1;
     }
-    insets.length += 1;
-    insets[insets.length-1] = insetBoxes;
+
+    insets[index].setInsetBox=div;
+
 
 }
 
@@ -104,8 +112,8 @@ function changePosition(element, index) {
     let posx = element.position().left;
     let posy = element.position().top;
 
-    let x = -posx
-    let y = -posy
+    let x = -posx;
+    let y = -posy;
     console.log("X: "+x + " Y "+y);
     changeInsetDiv(x, y);
 
