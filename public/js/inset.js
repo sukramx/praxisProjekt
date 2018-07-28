@@ -4,11 +4,13 @@ class Inset {
 
     constructor(){
         this.inset=this.createInset();
-        this.inset.resizable({handles:'all', autoHide:true, aspectRatio:false, containment:'parent'});
-        this.inset.draggable({containment: 'parent', stop: this.changePosition()});
-
         this.insetBox = this.createInsetBox();
+        this.context = this;
+        this.inset.resizable({handles:'all', autoHide:true, aspectRatio:false, containment:'parent'});
 
+        this.inset.draggable({containment:'parent', drag: (event, ui)=> {
+                this.changePosition();
+            }});
     }
 
     createInset(){
@@ -44,6 +46,11 @@ class Inset {
         return div;
     }
 
+    changePosition(){
+        let x = - this.inset.position().left;
+        let  y = - this.inset.position().top;
+        this.insetBox.children().css('background-position', x+'px '+y+'px');
+    }
 
     get position(){
         return this.inset.position();
@@ -73,16 +80,7 @@ class Inset {
 
 
 
-    changePosition(){
-        let x = this.inset.position().left;
-        let  y = this.inset.position().top;
-        try {
-            this.insetBox.children().css('backgroud-position', x+"px "+y+"px");
-        }catch{
 
-        }
-
-    }
 
 
 
