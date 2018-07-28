@@ -34,7 +34,7 @@ $(document).ready(function(){
         check=!check;
     });
 
-    $('#testBox').sortable();
+    $('#testBox').sortable({containment:'parent'});
 
 
 

@@ -6,7 +6,9 @@ class Inset {
         this.inset=this.createInset();
         this.insetBox = this.createInsetBox();
         this.context = this;
-        this.inset.resizable({handles:'all', autoHide:true, aspectRatio:false, containment:'parent'});
+        this.inset.resizable({handles:'all', autoHide:true, aspectRatio:false, containment:'parent', resize: () => {
+                this.changeSize();
+            }});
 
         this.inset.draggable({containment:'parent', drag: (event, ui)=> {
                 this.changePosition();
@@ -52,30 +54,18 @@ class Inset {
         this.insetBox.children().css('background-position', x+'px '+y+'px');
     }
 
+    changeSize(){
+        let h = this.inset.css('height');
+        let w = this.inset.css('width');
+
+        this.insetBox.children().css('width', w)
+            .css('height',h);
+    }
+
     get position(){
         return this.inset.position();
     }
-    get getHeight(){
-        return parseInt(this.inset.css('height'));
-    }
-    get getWidth(){
-        return parseInt(this.inset.css('width'));
-    }
-    get getInset(){
-        return this.inset;
-    }
-    set setHeight(height){
-        this.inset.css('height', height);
-    }
-    set getWidth(width){
-        this.inset.css('width', width);
-    }
-    set setInsetBox(insetBox){
-        this.insetBox=insetBox;
-    }
-    set setInset(inset){
-        this.inset = inset;
-    }
+
 
 
 
