@@ -51,6 +51,12 @@ function generateRoute(route){
     router.get('/' + route, (req, res, next) => {
         var pictures = fs.readdirSync(pathToWatchfolder+'/'+route+'/samples');
         //console.log(pictures);
+        let pictures_json = {
+            "pictures" : []
+        };
+        for (let i=0; i<pictures.length;i++){
+
+        }
         res.render('content', { title: route, condition: false, path: route, pictures: pictures, compareBoxes: compareBoxes});
         //console.log(route + " wurde aufgerufen!");
     })

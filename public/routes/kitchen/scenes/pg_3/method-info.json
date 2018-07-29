@@ -1,0 +1,8 @@
+{
+  "image" : {
+    "name": "pg_3",
+    "iteration" : 0,
+    "spp": 64,
+    "total" : 120
+  }
+}
