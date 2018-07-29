@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68abac38-c58d-418e-a743-7b090adc426d" name="Default" comment="">
+    <list default="true" id="68abac38-c58d-418e-a743-7b090adc426d" name="Default" comment="Fuege Kommentare hinzu">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_0/pg_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_1/pg_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_2/pg_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_3/pg_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_4/pg_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/ref/ref.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/data/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/path.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/ref.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/siebterVersuch/samples/2_Hey-Guys-2f1a8016eb56480d.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/compare.jade" beforeDir="false" afterPath="$PROJECT_DIR$/views/compare.jade" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compare.jade" pinned="false" current-in-tab="false">
+      <file leaf-file-name="compare.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/compare.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+            <state relative-caret-position="391">
+              <caret line="53" column="145" selection-start-line="53" selection-start-column="145" selection-end-line="53" selection-end-column="145" />
             </state>
           </provider>
         </entry>
@@ -75,8 +94,8 @@
       <file leaf-file-name="ui.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/ui.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="-1930">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -85,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/public/js/inset.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -99,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+            <state relative-caret-position="379">
+              <caret line="81" column="47" lean-forward="true" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -142,11 +161,11 @@
         <option value="$PROJECT_DIR$/public/js/context-menue.js" />
         <option value="$PROJECT_DIR$/views/zoom.jade" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
-        <option value="$PROJECT_DIR$/views/compare.jade" />
         <option value="$PROJECT_DIR$/public/js/ui.js" />
         <option value="$PROJECT_DIR$/public/js/inset.js" />
         <option value="$PROJECT_DIR$/public/js/picture.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/compare.jade" />
       </list>
     </option>
   </component>
@@ -252,7 +271,7 @@
       <workItem from="1532676238063" duration="86000" />
       <workItem from="1532676424526" duration="3999000" />
       <workItem from="1532792259492" duration="8929000" />
-      <workItem from="1532859159801" duration="1060000" />
+      <workItem from="1532859159801" duration="4872000" />
     </task>
     <task id="LOCAL-00001" summary="-Fuege automatische generierung von Routen hinzu&#10;-Fuege automatisches rendern von Bildern hinzu">
       <created>1527615052344</created>
@@ -377,7 +396,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108589000" />
+    <option name="totallyTimeSpent" value="112401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="68" y="49" width="1585" height="1000" extended-state="0" />
@@ -390,7 +409,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49776927" weight="0.3638418" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15423837" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15423837" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -453,7 +472,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -710,24 +729,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/context-menue.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2669">
           <caret line="157" column="64" selection-start-line="157" selection-start-column="64" selection-end-line="157" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -738,31 +743,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/inset.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/ui.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/compare.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        <state relative-caret-position="-1930">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+        <state relative-caret-position="379">
+          <caret line="81" column="47" lean-forward="true" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/compare.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="53" column="145" selection-start-line="53" selection-start-column="145" selection-end-line="53" selection-end-column="145" />
         </state>
       </provider>
     </entry>

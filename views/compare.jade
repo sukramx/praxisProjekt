@@ -14,14 +14,15 @@ block content
         tr
           td
             each picture in pictures
-              -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture
+              //-var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture
+              -var pfad = '../routes/'+path+'/scenes/'+picture+'.png'
               td
                 div
                   p(align= 'center') #{picture}
         tr
           td
             each picture in pictures
-              -var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture
+              -var pfad = '../routes/'+path+'/scenes/'+picture+'/image.png'
               td
                 div.picture
                   img.thumb(class="#{picture.substring(0, picture.length-4)}",src='' + pfad, width= 100, alt= picture)
@@ -50,7 +51,7 @@ block content
   //inner Div Boxes from Compareview
   div.crosshair#crosshair(style='border: 1px solid white; position:relative')
     - for(var i=boxes;0<i;i--)
-      div(id=compareBoxes[i-1], style='z-index:' +(10-i-1).toString()+'; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("/routes/verzeichnis/'+path+'/samples/'+pictures[i-1]+'");')
+      div(id=compareBoxes[i-1], style='z-index:' +(10-i-1).toString()+'; position: absolute;overflow: hidden;border: 1px solid white;width: 700px;height: 400px;background-image: url("/routes/'+path+'/scenes/'+pictures[i-1]+'/image.png'+'");')
 
 
   <!--/ The Context Menu -->
