@@ -41,12 +41,8 @@ $(document).ready(function(){
     // Set the thumb pictures draggable
     $("#draggable, div.picture").draggable({
         containment:'document',
-        revert: true
-    });
-    $('div.picture').on('mousedown',function () {
-        $(this).css('z-index','9999')
-    }).on('mouseup',function () {
-        $(this).css('z-index','0')
+        revert: true,
+        stack : 'div'
     });
 
 });

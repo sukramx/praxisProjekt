@@ -3,24 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="68abac38-c58d-418e-a743-7b090adc426d" name="Default" comment="Fuege Kommentare hinzu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_0/pg_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_1/pg_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_2/pg_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_3/pg_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/pg_4/pg_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/kitchen/scenes/ref/ref.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/data/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/path.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/pg_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/kitchen/samples/ref.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/routes/verzeichnis/siebterVersuch/samples/2_Hey-Guys-2f1a8016eb56480d.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/inset.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/inset.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ui.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/compare.jade" beforeDir="false" afterPath="$PROJECT_DIR$/views/compare.jade" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compare.jade" pinned="false" current-in-tab="true">
+      <file leaf-file-name="compare.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/compare.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="53" column="145" selection-start-line="53" selection-start-column="145" selection-end-line="53" selection-end-column="145" />
+            <state relative-caret-position="1292">
+              <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -94,17 +78,17 @@
       <file leaf-file-name="ui.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/ui.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1930">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="969">
+              <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inset.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="inset.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/inset.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="521">
+              <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
             </state>
           </provider>
         </entry>
@@ -121,8 +105,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="81" column="47" lean-forward="true" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
+            <state relative-caret-position="1377">
+              <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -143,6 +127,8 @@
       <find>menuItems</find>
       <find>contextMenuLinkClassName</find>
       <find>boxes</find>
+      <find>imgDiv</find>
+      <find>div</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,11 +147,11 @@
         <option value="$PROJECT_DIR$/public/js/context-menue.js" />
         <option value="$PROJECT_DIR$/views/zoom.jade" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
-        <option value="$PROJECT_DIR$/public/js/ui.js" />
-        <option value="$PROJECT_DIR$/public/js/inset.js" />
         <option value="$PROJECT_DIR$/public/js/picture.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/public/js/ui.js" />
         <option value="$PROJECT_DIR$/views/compare.jade" />
+        <option value="$PROJECT_DIR$/public/js/inset.js" />
       </list>
     </option>
   </component>
@@ -191,9 +177,9 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="68" />
-    <option name="y" value="49" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="167" />
+    <option name="y" value="1" />
     <option name="width" value="1585" />
     <option name="height" value="1000" />
   </component>
@@ -272,6 +258,8 @@
       <workItem from="1532676424526" duration="3999000" />
       <workItem from="1532792259492" duration="8929000" />
       <workItem from="1532859159801" duration="4872000" />
+      <workItem from="1532870234879" duration="12383000" />
+      <workItem from="1532895957106" duration="1741000" />
     </task>
     <task id="LOCAL-00001" summary="-Fuege automatische generierung von Routen hinzu&#10;-Fuege automatisches rendern von Bildern hinzu">
       <created>1527615052344</created>
@@ -396,24 +384,23 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112401000" />
+    <option name="totallyTimeSpent" value="126525000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="68" y="49" width="1585" height="1000" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5022307" side_tool="true" weight="0.3638418" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3299435" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49776927" weight="0.3638418" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5022307" side_tool="true" weight="0.3638418" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3299435" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49776927" weight="0.33859095" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15423837" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12604167" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39957938" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -423,28 +410,6 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49776927" visible="true" weight="0.3638418" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39957938" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.5022307" side_tool="true" visible="true" weight="0.3638418" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -701,13 +666,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/users.js" />
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -729,17 +687,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/context-menue.js">
+    <entry file="file://$PROJECT_DIR$/public/js/picture.js" />
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="157" column="64" selection-start-line="157" selection-start-column="64" selection-end-line="157" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/picture.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        <state relative-caret-position="578">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
@@ -757,31 +709,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/inset.js">
+    <entry file="file://$PROJECT_DIR$/views/compare.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="1292">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/ui.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1930">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="969">
+          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/context-menue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2669">
+          <caret line="157" column="64" selection-start-line="157" selection-start-column="64" selection-end-line="157" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="81" column="47" lean-forward="true" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
+        <state relative-caret-position="1377">
+          <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/compare.jade">
+    <entry file="file://$PROJECT_DIR$/public/js/inset.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="53" column="145" selection-start-line="53" selection-start-column="145" selection-end-line="53" selection-end-column="145" />
+        <state relative-caret-position="521">
+          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
         </state>
       </provider>
     </entry>
