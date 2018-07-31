@@ -34,7 +34,30 @@ $(document).ready(function(){
         check=!check;
     });
 
-    $('#testBox').sortable({containment:'parent'});
+    // language=JQuery-CSS
+    $('#testBox')
+
+        .mousedown(function() {
+            // set fixed height to prevent scroll jump
+            // when dragging from bottom
+            $(this).height($(this).height());
+        }).mouseup(function () {
+        // set height back to auto
+        // when user just clicked on item
+        $(this).height('auto');
+    })
+    .sortable({
+        start: function() {
+            $(this).height($(this).height());
+        },
+        stop: function() {
+            // dragging is happening
+            // and scroll jump was prevented,
+            // we can set it back to auto
+            $(this).height('auto');
+        }
+    });
+
 
 
 
@@ -48,8 +71,6 @@ $(document).ready(function(){
 });
 
 
-
-
 /**
  * This function creates a new Inset into the compareBox
  */
@@ -58,79 +79,6 @@ function createInset() {
     let inset = new Inset();
     insets.push(inset);
 }
-
-/*
-function createBox(){
-    //Create a new Box
-    let imagine = $('<div></div>').appendTo('#crosshair');
-    insets.push(new Inset());
-    createBoxDiv(insets.length-1);
-    //Config box
-
-    imagine.css('z-index', '100')
-        .css('border', '1px solid red')
-        .css('width', '100px')
-        .css('height', '100px')
-        .css('position', 'absolute');
-    //set Box draggable and resizable
-    imagine.draggable({containment:'parent',start: function(){console.log('Starte den Drag')}, ondrag: changePosition(imagine), stop: function(){console.log('Beende den Drag');changePosition(imagine)}});
-    imagine.resizable({handles:'all', autoHide:true, aspectRatio:false, containment:'parent'});
-    createBoxDiv(imagine);
-}
-/*
-
-/**
- * in this Function the Div for an Inset will be create.
- * @param box is the reference from our inset
- */
-/*
-function createBoxDiv(index){
-    let box = insets[index].getInset;
-    let src = getElementsByClassName(document, 'picture');
-    let anzahl = $(src).length;
-    let div = $('<div></div>').appendTo('#testBox');
-    div.css('height', box.css('height'));
-
-    let insetBoxes = 0;
-
-    for(let i=0; i<anzahl; i++){
-        let id = "insetBox"+insets.length+"n"+insetBoxes;
-        let imgView = $('<div)></div>').appendTo(div);
-        imgView.css('height', box.css('height'))
-            .css('width', box.css('height'))
-            .css('float', 'left')
-            .css('margin', '5px 5px 5px 5px')
-            .css('background-image', 'url('+$(src[i]).children('img').attr('src')+')')
-            .attr("id", id);
-        insetBoxes +=1;
-    }
-
-    insets[index].setInsetBox=div;
-
-}
-*/
-/*
-function changePosition(element, index) {
-    let posx = element.position().left;
-    let posy = element.position().top;
-
-    let x = -posx;
-    let y = -posy;
-    console.log("X: "+x + " Y "+y);
-    changeInsetDiv(x, y);
-
-}
-*/
- /*
-function changeInsetDiv(x, y) {
-    for(let zaehler = 0; zaehler <= insets.length; zaehler++){
-        for (let zaehler2 = 0; zaehler2 <= insets[zaehler]; zaehler2++){
-            let id = "#insetBox"+zaehler+"n"+zaehler2;
-            $(id).css('background-position', x+'px '+y+'px');
-        }
-    }
-}
-*/
 
 function getCursorPos(e) {
     var a, x = 0, y = 0;

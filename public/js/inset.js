@@ -33,62 +33,78 @@ class Inset {
         let src = getElementsByClassName(document, 'picture');
         let anzahl = $(src).length;
         let hoehe = 100 + parseInt(this.inset.css('height'));
-        this.div = $('<div></div>').appendTo('#testBox');
+        let div = $('<div></div>').appendTo('#testBox');
 
         console.log(hoehe);
-        this.div.css('position', 'relative')
+        div.css('position', 'relative')
             .css('border', '1px solid')
             .css('min-height', hoehe+'px')
             .css('margin', '5px 5px 5px 5px');
-        this.div.resizable();
 
 
+
+        //Erzeuge Div für Optionen
+
+        let optionDiv = $('<div></div>').appendTo(div);
+        optionDiv.css("position", 'relative')
+            .css('min-height', '0px')
+            .css('display', 'inline-block');
 
         //Erzeuge Div für die Elemente um die Farben zu ändern
-        let colorDiv =  $('<div></div>').appendTo(this.div);
+        let colorDiv =  $('<div></div>').appendTo(optionDiv);
         colorDiv.css('position', 'relative')
-            .css('float', 'left');
+            .css('display', 'inline');
 
         //Erzeuge Input für die Farbgebung der Ränder
-        this.input =  $('<input type="color" value="'+ this.getRandomColor() +'">').appendTo(colorDiv);
+        this.input =  $(`<input type="color" value="${this.getRandomColor()}"'>`).appendTo(colorDiv);
         this.inset.css('border-color', this.input.val());
-        this.div.css('border-color', this.inset.css('border-left-color'))
+        div.css('border-color', this.inset.css('border-left-color'))
             .css('position', 'relative');
-
-        //Erzeuge Button für die Änderung der Ränder
-        this.button = $('<button>Change Color</button>').appendTo(colorDiv);
-        this.button.click( ()  => {
-            this.changeColor();
-        })
+        this.input
             .css('position', 'relative')
-            .css('display', 'block');
+            .css('display', 'block')
+            .change(() => {
+                this.changeColor();
+            });
+
 
 
 
         //Erzeuge Div für Breit und Höhe
-        let sizeDiv = $('<div></div>').appendTo(this.div);
+        let sizeDiv = $('<div></div>').appendTo(optionDiv);
         sizeDiv.css('position', 'relative')
-            .css('float', 'left');
+            .css('display', 'inline');
 
         //Erzeuge Input für die Breite
         this.inputW = $('<input type="number" value="'+ parseInt(this.inset.css('width')) +'">').appendTo(sizeDiv);
         this.inputW.css('position', 'relative')
-            .css('display', 'block');
+            .css('display', 'block')
+            .css('float', 'left')
+            .change(() => {
+            this.changeInputSize(this.inputW.val(), undefined)
+        });
+        $('<label for="'+this.inputW+'">width</label>').appendTo(sizeDiv)
+            .css('display', 'inline-block');
 
         //Erzeuge Input für die Höhe
         this.inputH = $('<input type="number" value="'+ parseInt(this.inset.css('height')) +'">').appendTo(sizeDiv);
         this.inputH.css('position', 'relative')
             .css('display', 'block')
-            .attr('onchange',this.changeInputSize(undefined, this.inputH.val()));
+            .css('float', 'left')
+            .change(() => {
+                this.changeInputSize(undefined, this.inputH.val())
+            });
+        $('<label for="'+this.inputH+'">height</label>').appendTo(sizeDiv)
+            .css('display', 'inline-block');
 
 
 
 
 
         //Erzeuge div für Aspect Ratio
-        let checkDiv = $('<div></div>').appendTo(this.div);
-        sizeDiv.css('position', 'relative')
-            .css('float', 'left');
+        let checkDiv = $('<div></div>').appendTo(optionDiv);
+        checkDiv.css('position', 'relative')
+            .css('display', 'inline');
 
         //Erzeuge Checkbox für Aspect Ratio
         this.checkBox=$('<input type="checkbox">').appendTo(checkDiv);
@@ -96,33 +112,39 @@ class Inset {
             .css('display', 'block');
 
         //Erzeuge Input für Aspect Ratio
-        let inputA = $('<div></div>').appendTo(checkDiv);
-        inputA.css('position', 'relative')
+        let aspectDiv = $('<div></div>').appendTo(checkDiv);
+        aspectDiv.css('position', 'relative')
             .css('display', 'block');
-        this.inputA = $('<input type="text" value="1:1" >').appendTo(inputA);
-        $('<label for="'+this.inputA+'">ascpect ratio</label>').appendTo(inputA);
+        this.inputA = $('<input type="text" value="1:1" >').appendTo(aspectDiv);
+        $('<label for="'+this.inputA+'">ascpect ratio</label>').appendTo(aspectDiv);
 
 
 
         //Erzeuge Div wo die Inset Vorschaubilder hineinkommen
-        this.imgDiv = $('<div></div>').appendTo(this.div);
-        this.imgDiv.css('min-height', '100px')
+        let imgDiv = $('<div class="imgDiv"></div>').appendTo(div);
+
+        imgDiv
             .css('position', 'relative')
-            .css('display', 'inline-block')
-            .css('float', 'left')
-            .css('margin', '10px 10px 10px 10px');
+            .css('min-height', '10px')
+            .css('margin', '5px 5px 5px 5px');
+
 
         //Erzeuge Inset Vorschaubilder
         for(let i=0; i<anzahl; i++){
-            let imgView = $('<div)></div>').appendTo(this.imgDiv);
-            imgView.css('height', this.inset.css('height'))
+            let imgView = $('<div></div>').appendTo(imgDiv);
+            imgView
+                .css('position', 'relative')
+                .css('display', 'inline-block')
+                .css('height', this.inset.css('height'))
                 .css('width', this.inset.css('height'))
-                //.css('float', 'left')
                 .css('margin', '5px 5px 5px 5px')
-                .css('background-image', 'url('+$(src[i]).children('img').attr('src')+')')
-                .css('display', 'inline-block');
+                .css('background-image', 'url('+$(src[i]).children('img').attr('src')+')');
         }
-        return this.div;
+
+
+
+        this.imgDiv = imgDiv;
+        return div;
     }
 
     //Wird aufgerufen, wenn das Inset bewegt wird. Aendert die background-position von jedem Bild in der insetBox
@@ -165,7 +187,19 @@ class Inset {
         let value = this.input.val();
         console.log(value)
         this.inset.css('border-color', value);
-        this.insetBox.css('border-color', value);
+        try {
+            this.insetBox.css('border-color', value);
+        }catch{}
+
+    }
+    changeColor2(input){
+        let value = input.val();
+        console.log(value);
+        this.inset.css('border-color', value);
+        try {
+            this.insetBox.css('border-color', value);
+        }catch{}
+
     }
 
     getRandomColor() {

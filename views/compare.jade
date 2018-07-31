@@ -15,7 +15,7 @@ block content
           td
             each picture in pictures
               //-var pfad = '../routes/verzeichnis/'+path+'/samples/'+picture
-              -var pfad = '../routes/'+path+'/scenes/'+picture+'.png'
+              -var pfad = '../routes/'+path+'/scenes/'+picture
               td
                 div
                   p(align= 'center') #{picture}
@@ -25,7 +25,7 @@ block content
               -var pfad = '../routes/'+path+'/scenes/'+picture+'/image.png'
               td
                 div.picture
-                  img.thumb(class="#{picture.substring(0, picture.length-4)}",src='' + pfad, width= 100, alt= picture)
+                  img.thumb(class="#{picture.substring(0, picture.length-4)} img-thumbnail",src='' + pfad, width= 100, alt= picture)
 
 
   //Compare View
@@ -74,4 +74,7 @@ block content
 
   p() #{boxes}
   //Div where all Inset Boxes will add
-  div(style="position: relative;")#testBox
+  div(style="position: relative; height: auto")#testBox
+
+
+  p Lirum Larum Ipsum
