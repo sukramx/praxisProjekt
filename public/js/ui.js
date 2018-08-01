@@ -29,6 +29,31 @@ $(document).ready(function(){
 
                 }
         }
+        $('#crosshair').droppable({
+            drop: function(e, ui) {
+                var parentOffset = $(this).offset();
+                let relX = e.pageX - parentOffset.left;
+                let relY = e.pageY - parentOffset.top;
+                var picture = $(ui.draggable).children().attr('src');
+                var target;
+                if(relX < $(this).width()/2) {
+                    if(relY < $(this).height()/2) {
+                        target = $('#topleft');
+                    } else {
+                        target = $('#bottomleft');
+                    }
+                } else {
+                    if(relY < $(this).height()/2) {
+                        target = $('#topright');
+                    } else {
+                        target = $('#bottomright');
+                    }
+                }
+                target.css('background-image','url("'+picture+'")' );
+            }
+        });
+
+
        // For freeze the crosshair
     }).on('click',function () {
         check=!check;
@@ -60,12 +85,23 @@ $(document).ready(function(){
 
 
 
-
+    var tempCheck;
     // Set the thumb pictures draggable
     $("#draggable, div.picture").draggable({
         containment:'document',
         revert: true,
-        stack : 'div'
+        stack : 'div',
+        start: function (event, ui) {
+            $('#topleft').css('width', '350px')
+                .css('height', '200px');
+            $('#topright').css('height', '200px');
+            $('#bottomleft').css('width', '350px');
+            tempCheck = check;
+            check = false;
+        },
+        stop: function (event, ui) {
+            check=tempCheck;
+        }
     });
 
 });
