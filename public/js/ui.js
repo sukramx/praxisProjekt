@@ -29,27 +29,33 @@ $(document).ready(function(){
 
                 }
         }
+
+
         $('#crosshair').droppable({
             drop: function(e, ui) {
-                var parentOffset = $(this).offset();
-                let relX = e.pageX - parentOffset.left;
-                let relY = e.pageY - parentOffset.top;
-                var picture = $(ui.draggable).children().attr('src');
-                var target;
-                if(relX < $(this).width()/2) {
-                    if(relY < $(this).height()/2) {
-                        target = $('#topleft');
+                let check = $(ui.draggable).attr('class');
+
+                if (check.search('picture') >= 0) {
+                    var parentOffset = $(this).offset();
+                    let relX = e.pageX - parentOffset.left;
+                    let relY = e.pageY - parentOffset.top;
+                    var picture = $(ui.draggable).children().attr('src');
+                    var target;
+                    if (relX < $(this).width() / 2) {
+                        if (relY < $(this).height() / 2) {
+                            target = $('#topleft');
+                        } else {
+                            target = $('#bottomleft');
+                        }
                     } else {
-                        target = $('#bottomleft');
+                        if (relY < $(this).height() / 2) {
+                            target = $('#topright');
+                        } else {
+                            target = $('#bottomright');
+                        }
                     }
-                } else {
-                    if(relY < $(this).height()/2) {
-                        target = $('#topright');
-                    } else {
-                        target = $('#bottomright');
-                    }
+                    target.css('background-image', 'url("' + picture + '")');
                 }
-                target.css('background-image','url("'+picture+'")' );
             }
         });
 
@@ -61,7 +67,6 @@ $(document).ready(function(){
 
     // language=JQuery-CSS
     $('#testBox')
-
         .mousedown(function() {
             // set fixed height to prevent scroll jump
             // when dragging from bottom
