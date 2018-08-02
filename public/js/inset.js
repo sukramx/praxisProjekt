@@ -53,7 +53,8 @@ class Inset {
         //Erzeuge Div für die Elemente um die Farben zu ändern
         let colorDiv =  $('<div></div>').appendTo(optionDiv);
         colorDiv.css('position', 'relative')
-            .css('display', 'inline');
+            .css('display', 'inline-block')
+            .css('margin', '0px 5px 0px 5px');
 
         //Erzeuge Input für die Farbgebung der Ränder
         this.input =  $(`<input type="color" value="${this.getRandomColor()}"'>`).appendTo(colorDiv);
@@ -73,29 +74,39 @@ class Inset {
         //Erzeuge Div für Breit und Höhe
         let sizeDiv = $('<div></div>').appendTo(optionDiv);
         sizeDiv.css('position', 'relative')
-            .css('display', 'inline');
+            .css('display', 'inline-block')
+            .css('margin', '0px 5px 0px 5px');
+
+
+        let inputWDiv = $('<div></div>'). appendTo(sizeDiv)
+            .css('display', 'block')
+            .css('position', 'relative');
 
         //Erzeuge Input für die Breite
-        this.inputW = $('<input type="number" value="'+ parseInt(this.inset.css('width')) +'">').appendTo(sizeDiv);
+        $('<label for="'+this.inputW+'">width :</label>').appendTo(inputWDiv);
+        this.inputW = $('<input type="number" value="'+ parseInt(this.inset.css('width')) +'">').appendTo(inputWDiv);
         this.inputW.css('position', 'relative')
-            .css('display', 'block')
-            .css('float', 'left')
+            .css('display', 'inline-block')
             .change(() => {
             this.changeInputSize(this.inputW.val(), undefined)
         });
-        $('<label for="'+this.inputW+'">width</label>').appendTo(sizeDiv)
-            .css('display', 'inline-block');
+
+
+
+
+        let inputHDiv = $('<div></div>'). appendTo(sizeDiv)
+            .css('display', 'block')
+            .css('position', 'relative');
 
         //Erzeuge Input für die Höhe
-        this.inputH = $('<input type="number" value="'+ parseInt(this.inset.css('height')) +'">').appendTo(sizeDiv);
+        $('<label for="'+this.inputH+'">height:</label>').appendTo(inputHDiv);
+        this.inputH = $('<input type="number" value="'+ parseInt(this.inset.css('height')) +'">').appendTo(inputHDiv);
         this.inputH.css('position', 'relative')
-            .css('display', 'block')
-            .css('float', 'left')
+            .css('display', 'inline-block')
             .change(() => {
                 this.changeInputSize(undefined, this.inputH.val())
             });
-        $('<label for="'+this.inputH+'">height</label>').appendTo(sizeDiv)
-            .css('display', 'inline-block');
+
 
 
 
@@ -104,19 +115,46 @@ class Inset {
         //Erzeuge div für Aspect Ratio
         let checkDiv = $('<div></div>').appendTo(optionDiv);
         checkDiv.css('position', 'relative')
-            .css('display', 'inline');
+            .css('display', 'inline-block')
+            .css('margin', '0px 5px 0px 5px');
 
         //Erzeuge Checkbox für Aspect Ratio
-        this.checkBox=$('<input type="checkbox">').appendTo(checkDiv);
+        let checkBoxDiv = $('<div></div>').appendTo(checkDiv)
+            .css('display', 'block')
+            .css('position', 'relative');
+
+        this.checkBox=$('<input type="checkbox" value="false">').appendTo(checkBoxDiv);
         this.checkBox.css('position', 'relative')
-            .css('display', 'block');
+            .css('display', 'inline-block')
+            .change(()=>{
+                let val =this.inputA.val();//parseFloat(this.inputA.val());
+                console.log(this.checkBox.prop('checked'));
+                let options = this.inset.resizable('option');
+
+                if (this.checkBox.prop('checked')){
+                    this.inset.resizable( "option", "aspectRatio", val);
+                    options.aspectRatio = true;
+                    this.inset.resizable('destroy');
+                    this.inset.resizable(options);
+                    this.changeInputSize(this.inset.css('width'), undefined);
+                }else{
+                    this.inset.resizable( "option", "aspectRatio", false);
+                    options.aspectRatio = false;
+                    this.inset.resizable('destroy');
+                    this.inset.resizable(options);
+                }
+            });
+        $('<label for="'+this.checkBox+'"> activate ascpect ratio</label>').appendTo(checkBoxDiv);
 
         //Erzeuge Input für Aspect Ratio
         let aspectDiv = $('<div></div>').appendTo(checkDiv);
         aspectDiv.css('position', 'relative')
             .css('display', 'block');
-        this.inputA = $('<input type="text" value="1:1" >').appendTo(aspectDiv);
-        $('<label for="'+this.inputA+'">ascpect ratio</label>').appendTo(aspectDiv);
+        this.inputA = $('<input type="text" value="1" >').appendTo(aspectDiv)
+            .change(()=>{
+                this.changeInputSize(this.inset.css('height'), undefined);
+            });
+        $('<label for="'+this.inputA+'"> ascpect ratio value</label>').appendTo(aspectDiv);
 
 
 
@@ -170,8 +208,16 @@ class Inset {
     changeInputSize(w, h) {
         if (w != undefined)
             this.inset.css('width', w);
+            if (this.checkBox.prop('checked')){
+                let val = parseFloat(this.inputA.val());
+                this.inset.css('height', (parseInt(w)/val)+"px");
+            }
         if (h != undefined)
             this.inset.css('height', h);
+            if (this.checkBox.prop('checked')){
+                let val = parseFloat(this.inputA.val());
+                this.inset.css('width', (parseInt(h)*val)+"px");
+            }
         try {
             this.changeSize();
         }catch{}

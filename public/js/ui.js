@@ -30,7 +30,7 @@ $(document).ready(function(){
                 }
         }
 
-
+        //Hier wird die Vorschaubox droppable gemacht. D.h. wir können die Bilder in die Vorschaubox ziehen um die Bereiche zu ändern.
         $('#crosshair').droppable({
             drop: function(e, ui) {
                 let check = $(ui.draggable).attr('class');
