@@ -98,9 +98,9 @@ function generateRoute(route){
 
                 let children = {
                     title: data.image.name,
-                    image: 'routes/' + route + "/scenes/" + data.image.name + "/image.png"
+                    image: 'routes/' + route + "/scenes/" + data.image.name + "/image.exr"
                 };
-                /*
+                
                 let children_SSIM = {
                     title: data.image.name + " SSIM",
                     tonemapGroup: 'other',
@@ -128,14 +128,14 @@ function generateRoute(route){
                         imageB: 'routes/' + route + "/scenes/" + 'ref' + "/image.exr"
                     }
                 };
-                */
+                
                 jeridata.children.push(children);
 
-                /*
+                
                 jeridata.children.push(children_SSIM);
                 jeridata.children.push(children_L1);
                 jeridata.children.push(children_MrSE);
-                */
+                
 
             }
             jeriData = jeridata;
