@@ -1,0 +1,8 @@
+{
+	"views" : [
+		{
+			"name" : "Compare-View",
+			"template" : "compare.jade"
+		}
+	]
+}

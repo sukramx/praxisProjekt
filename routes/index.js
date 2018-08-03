@@ -8,9 +8,12 @@ var jquery = require('jquery');
 let compareBoxes = ["topleft", "topright", "bottomleft", "bottomright"];
 
 
+var jeriData;
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Monte Carlo Rendering Algorithmen Evaluationstool', condition: false, routes: files });
+    res.render('index', { title: 'Monte Carlo Rendering Algorithmen Evaluationstool', condition: false, routes: files });
 });
 
 /**
@@ -41,9 +44,9 @@ function generateRoutes(file) {
     if (file != undefined){
         files = file;
     }
-    for (var i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++) {
         //console.log(files[i]);
-        var route = (files[i]);
+        let route = (files[i]);
         generateRoute(route);
     }
 }
@@ -58,18 +61,28 @@ function generateRoute(route){
         var pictures = fs.readdirSync(pathToWatchfolder+'/'+route+"/scenes");
         console.log(pictures);
         let picture_json = {
-          "name" : "",
-          "iteration" : 0,
-          "spp" : 0,
-          "total" : 0,
-          "path" : ""
+            "name" : "",
+            "iteration" : 0,
+            "spp" : 0,
+            "total" : 0,
+            "path" : ""
         };
 
         let pictures_json = {
             "pictures" : []
         };
-        for (let i=0; i<pictures.length;i++){
-            const data = require('../'+pathToWatchfolder+'/'+route+'/scenes/'+pictures[i]+'/method-info.json')
+
+        //JERI.IO
+        let jeridata = {
+            title: route,
+            children: [
+
+            ]
+        };
+
+
+        for (let i=0; i<pictures.length;i++) {
+            const data = require('../' + pathToWatchfolder + '/' + route + '/scenes/' + pictures[i] + '/method-info.json');
 
             console.log(data);
 
@@ -78,14 +91,66 @@ function generateRoute(route){
             picture.iteration = data.image.iteration;
             picture.spp = data.image.spp;
             picture.total = data.image.total;
-            picture.path = 'routes/'+route+"/scenes/"+data.image.name + "image.png";
+            picture.path = 'routes/' + route + "/scenes/" + data.image.name + "/image.png";
             pictures_json.pictures.push(picture);
 
+            if (route == "jeri") {
+
+                let children = {
+                    title: data.image.name,
+                    image: 'routes/' + route + "/scenes/" + data.image.name + "/image.png"
+                };
+                /*
+                let children_SSIM = {
+                    title: data.image.name + " SSIM",
+                    tonemapGroup: 'other',
+                    lossMap: {
+                        function: 'SSIM',
+                        imageA: 'routes/' + route + "/scenes/" + data.image.name + "/image.exr",
+                        imageB: 'routes/' + route + "/scenes/" + 'ref' + "/image.exr"
+                    }
+                };
+                let children_L1 = {
+                    title: data.image.name + " L1",
+                    tonemapGroup: 'other',
+                    lossMap: {
+                        function: 'L1',
+                        imageA: 'routes/' + route + "/scenes/" + data.image.name + "/image.exr",
+                        imageB: 'routes/' + route + "/scenes/" + 'ref' + "/image.exr"
+                    }
+                };
+                let children_MrSE = {
+                    title: data.image.name + " MrSE",
+                    tonemapGroup: 'other',
+                    lossMap: {
+                        function: 'MRSE',
+                        imageA: 'routes/' + route + "/scenes/" + data.image.name + "/image.exr",
+                        imageB: 'routes/' + route + "/scenes/" + 'ref' + "/image.exr"
+                    }
+                };
+                */
+                jeridata.children.push(children);
+
+                /*
+                jeridata.children.push(children_SSIM);
+                jeridata.children.push(children_L1);
+                jeridata.children.push(children_MrSE);
+                */
+
+            }
+            jeriData = jeridata;
+            fs.writeFileSync('./public/jeriData.json', JSON.stringify(jeridata));
         }
+
         res.render('content', { title: route, condition: false, path: route, pictures: pictures, compareBoxes: compareBoxes});
         //console.log(route + " wurde aufgerufen!");
     })
 }
+
+router.get('/jeriio', function(req, res, next){
+    res.render('jeri', { title: 'A View from Jeri.io', routes: files, data: jeriData })
+});
+
 
 
 

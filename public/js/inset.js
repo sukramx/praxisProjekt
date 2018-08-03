@@ -88,8 +88,8 @@ class Inset {
         this.inputW.css('position', 'relative')
             .css('display', 'inline-block')
             .change(() => {
-            this.changeInputSize(this.inputW.val(), undefined)
-        });
+                this.changeInputSize(this.inputW.val(), undefined)
+            });
 
 
 
@@ -208,16 +208,16 @@ class Inset {
     changeInputSize(w, h) {
         if (w != undefined)
             this.inset.css('width', w);
-            if (this.checkBox.prop('checked')){
-                let val = parseFloat(this.inputA.val());
-                this.inset.css('height', (parseInt(w)/val)+"px");
-            }
+        if (this.checkBox.prop('checked')){
+            let val = parseFloat(this.inputA.val());
+            this.inset.css('height', (parseInt(w)/val)+"px");
+        }
         if (h != undefined)
             this.inset.css('height', h);
-            if (this.checkBox.prop('checked')){
-                let val = parseFloat(this.inputA.val());
-                this.inset.css('width', (parseInt(h)*val)+"px");
-            }
+        if (this.checkBox.prop('checked')){
+            let val = parseFloat(this.inputA.val());
+            this.inset.css('width', (parseInt(h)*val)+"px");
+        }
         try {
             this.changeSize();
         }catch{}
@@ -225,7 +225,7 @@ class Inset {
     }
 
 
-        get position(){
+    get position(){
         return this.inset.position();
     }
 
