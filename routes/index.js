@@ -139,7 +139,7 @@ function generateRoute(route){
 
             }
             jeriData = jeridata;
-            fs.writeFileSync('./public/jeriData.json', JSON.stringify(jeridata));
+            fs.writeFileSync('./public/jeridata.json', JSON.stringify(jeridata));
         }
 
         res.render('content', { title: route, condition: false, path: route, pictures: pictures, compareBoxes: compareBoxes});
