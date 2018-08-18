@@ -7,7 +7,7 @@ html
         script.
 
             var json = $.getJSON("jeridata.json", function (json) {
-                console.log(json); // this will show the info it in firebug console
+                console.log(json);
                 console.log(JSON.stringify(json));
                 document.getElementById('pelement').innerHTML = JSON.stringify(json);
                 Jeri.renderViewer(document.getElementById('root'), json);

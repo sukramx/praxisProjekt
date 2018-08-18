@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+var converter = require('../python/python');
 //var pathToWatchfolder = 'public/routes/verzeichnis';
 var pathToWatchfolder = 'public/routes';
 var files = fs.readdirSync('public/routes/');
 var jquery = require('jquery');
 let compareBoxes = ["topleft", "topright", "bottomleft", "bottomright"];
-
+//Fuer das ausführen von Python Skripte
+const spawn = require("child_process").spawn;
 
 var jeriData;
 
@@ -29,12 +31,54 @@ try {
         if (filename) {
             console.log('filename provided: '+filename);
             generateRoutes(files);
+
+            generatePNG(filename);
+
         } else {
             console.log('filename not provided');
         }
     });
 }catch(err){
     console.log(err);
+}
+
+/**
+ * Hier wird die Route erstellt, die fuer das Pythonscript relevant ist.
+ * @param filename
+ */
+function generatePNG(filename) {
+
+    try {
+        let path = pathToWatchfolder + '/' + filename + '/scenes/';
+        let scenes = fs.readdirSync(path);
+        console.log(path);
+        for (let s = 0; s < scenes.length; s++) {
+            console.log(scenes[s]);
+            let filepath = path + scenes[s];
+            doPython(path+scenes[s]);
+        }
+    }
+    catch (e) {
+        console.log(e);
+    }
+}
+
+/**
+ * Hier wird das Pythontool von Sebastian Herholz aufgerufen. Dieses Tool wandelt OpenEXR Bilder in PNG Bilder um.
+ * @param filepath
+ */
+function doPython(filepath) {
+    console.log(filepath);
+    let exrs = fs.readdirSync(filepath);
+    for (let e = 0; e < exrs.length; e++) {
+        if (exrs[e].includes('.exr')) {
+            let exr = filepath + '/' + exrs[e];
+            let jpg = exr.slice(0, -3) + 'png';
+            console.log(exr);
+            converter.convertEXRtoPNG(exr, jpg);
+            //const pythonProcess = spawn('python', ["python/ConvertEXRtoJPG.py", exr, jpg]);
+        }
+    }
 }
 
 /**
@@ -128,6 +172,36 @@ function generateRoute(route){
                         imageB: 'routes/' + route + "/scenes/" + 'ref' + "/image.exr"
                     }
                 };
+
+                let children_L2 = {
+                    title: data.image.name + " L2",
+                    tonemapGroup: 'other',
+                    lossMap: {
+                        function: 'L2',
+                        imageA: 'routes/' + route + "/scenes/" + data.image.name + "/image.exr",
+                        imageB: 'routes/' + route + "/scenes/" + 'ref' + "/image.exr"
+                    }
+                };
+
+                let children_MAPE = {
+                    title: data.image.name + " MAPE",
+                    tonemapGroup: 'other',
+                    lossMap: {
+                        function: 'MAPE',
+                        imageA: 'routes/' + route + "/scenes/" + data.image.name + "/image.exr",
+                        imageB: 'routes/' + route + "/scenes/" + 'ref' + "/image.exr"
+                    }
+                };
+
+                let children_SMAPE = {
+                    title: data.image.name + " SMAPE",
+                    tonemapGroup: 'other',
+                    lossMap: {
+                        function: 'SMAPE',
+                        imageA: 'routes/' + route + "/scenes/" + data.image.name + "/image.exr",
+                        imageB: 'routes/' + route + "/scenes/" + 'ref' + "/image.exr"
+                    }
+                };
                 
                 jeridata.children.push(children);
 
@@ -135,6 +209,9 @@ function generateRoute(route){
                 jeridata.children.push(children_SSIM);
                 jeridata.children.push(children_L1);
                 jeridata.children.push(children_MrSE);
+                jeridata.children.push(children_L2);
+                jeridata.children.push(children_SMAPE);
+                jeridata.children.push(children_MAPE);
                 
 
             }
