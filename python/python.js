@@ -20,7 +20,7 @@ module.exports = {
 
         pyshell.end(function (err) {
             if (err) {
-                console.log('error occurs in pyshell end function');
+                console.log('error occurs in pyshell end function'+err );
             }
 
             console.log('finished');
