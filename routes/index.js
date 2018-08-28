@@ -109,7 +109,7 @@ function generateRoute(route){
             "iteration" : 0,
             "spp" : 0,
             "total" : 0,
-            "path" : ""
+            "length" : ""
         };
 
         let pictures_json = {

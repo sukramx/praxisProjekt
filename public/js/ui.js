@@ -81,9 +81,6 @@ $(document).ready(function(){
             $(this).height($(this).height());
         },
         stop: function() {
-            // dragging is happening
-            // and scroll jump was prevented,
-            // we can set it back to auto
             $(this).height('auto');
         }
     });

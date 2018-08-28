@@ -13,6 +13,7 @@ class Inset {
         this.inset.draggable({containment:'parent', drag: (event, ui)=> {
                 this.changePosition();
             }});
+        console.log(this);
     }
 
     //Erstellt ein Inset innerhalb der Vergleichsbox
@@ -67,8 +68,6 @@ class Inset {
             .change(() => {
                 this.changeColor();
             });
-
-
 
 
         //Erzeuge Div für Breit und Höhe
@@ -220,7 +219,9 @@ class Inset {
         }
         try {
             this.changeSize();
-        }catch{}
+        }catch (e) {
+            console.log(e);
+        }
 
     }
 
@@ -231,37 +232,36 @@ class Inset {
 
     changeColor(){
         let value = this.input.val();
-        console.log(value)
+        console.log(value);
         this.inset.css('border-color', value);
         try {
             this.insetBox.css('border-color', value);
-        }catch{}
+        }catch (e) {
+            console.log(e);
+        }
+        }
 
-    }
-    changeColor2(input){
+    changeColor2(input)
+    {
         let value = input.val();
         console.log(value);
         this.inset.css('border-color', value);
         try {
             this.insetBox.css('border-color', value);
-        }catch{}
+        }catch (e){
+            console.log(e);
+        }
 
-    }
+    };
 
-    getRandomColor() {
-        var letters = '0123456789ABCDEF';
-        var color = '#';
+    getRandomColor()
+    {
+        let letters = '0123456789ABCDEF';
+        let color = '#';
         for (var i = 0; i < 6; i++) {
             color += letters[Math.floor(Math.random() * 16)];
         }
+
         return color;
     }
-
-
-
-
-
-
-
-
 }
